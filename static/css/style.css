@@ -41,7 +41,7 @@ body{
 }
 
 .tag-name:hover{
-	text-decoration: underline #333;
+	text-decoration: underline;
 }
 
 .content{
@@ -153,5 +153,10 @@ span.position-organization {
 	color: #736c7a;
 	text-align: center;
 	text-decoration: underline;
+}
+
+p#id-footer{
+	color: #ffff4d;
+	font-style: italic;
 }
 /*** ens Contacts page settings ***/
