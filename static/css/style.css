@@ -14,7 +14,9 @@
 .container-fluid{
 	background-color: #4d4dff;
 }
-
+a.ptn:hover{
+	color: #4d4dff;
+}
 .navbar-default .navbar-nav > li > a {
   color: #a6ff4d;
 }
@@ -71,7 +73,7 @@ img.img-description{
 	color: #3dcc86;
 }
 
-#description{
+#description-id{
 	background-color: #d8e6f4;
 }
 
@@ -88,10 +90,13 @@ table.table-program{
 .head-name{
 	background-color:  	#f4d8d8;
 }
+#first-btn{
+	text-decoration: underline;
+}
 /*** end Main page settings ***/
 
 /*** Contacts page settings ***/
-div.tab-pane fade{
+div.tab-pane{
 	background-color: red;
 	border: 2px dotted yellow;
 	border-radius: 20px;
