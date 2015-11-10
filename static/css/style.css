@@ -1,0 +1,61 @@
+body {
+    background-image: url("../images/back.jpg");
+}
+
+nav {
+    opacity: 0.4;
+}
+
+.jumbotron, .opct{
+    background-color: #222;
+    border-color: #080808;
+    opacity: 0.4;
+    color: floralwhite;
+}
+.antiopas{
+    background-color: #222;
+    border-color: #080808;
+    opacity: 1.0;
+    color: white;
+    border: none;
+}
+
+.antiopas p{
+
+    color: white;
+    font-size: 18px;
+}
+
+.navbar-brand {
+    background-image: url("../images/logo.png");
+
+}
+
+.navbar-header {
+    padding: 0 30px 0 30px;
+}
+
+.avatar {
+    height: 180px;
+    width: 180px;
+}
+
+.padd{
+   margin-left: 50px;
+}
+
+.padd2{
+   margin-left: 50px;
+}
+.padd3{
+   margin-left: 50px;
+}
+.padd4{
+   margin-left: 50px;
+}
+.padd5{
+   margin-left: 50px;
+}
+.padd6{
+   margin-left: 50px;
+}
