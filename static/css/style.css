@@ -1,0 +1,81 @@
+
+.logo{
+	width: 5%;
+	height: 5%;
+	margin: 1% 1% -1% 10%;
+}
+.diviz1, .diviz2, .diviz3{
+	color: #3b5998;
+	padding-right: 5px;
+	padding-top: 3px;
+	text-align: right;
+	font-weight: bold;
+	font-size: 14pt;
+}
+.program{
+	text-align: center;
+}
+.descr{
+	text-align: center;
+	font-weight: bold;
+}
+.programh{
+	text-align: center;
+	font-weight: bold;
+}
+.py{
+	font-weight: bold;
+	color: #3b5998;
+}
+
+.top_bar{
+	font-weight: bold;
+	font-size: 14pt;
+	font-family: Italiac;
+}
+.spa{
+	font-weight: bold;
+	margin-left: 30px;
+}
+.numbers{
+	font-size: 20pt;
+}
+.my_table{
+	text-align:center;
+	border:#bdbdbd 1px solid;
+	border-collapse:collapse;
+	margin: auto;
+}
+table tbody tr th{
+	vertical-align:middle;
+	border:#bdbdbd 1px solid;
+	border-collapse:collapse;
+	padding-top:7px;
+	padding-bottom:7px;
+	padding-right: 7px;
+	padding-left: 7px;
+}
+table tbody tr td{
+	vertical-align:middle;
+	border:#bdbdbd 1px solid;
+	border-collapse:collapse;
+	padding-top:7px;
+	padding-bottom:7px;
+	padding-right: 7px;
+	padding-left: 7px;
+}
+
+.t_head th{
+	text-align:center;
+}
+.my_table tr td:last-child{
+	text-align:left;
+}
+
+tr:nth-child(2n) {
+    background: #fcfcfc; /* Цвет фона */
+   } 
+tr:nth-child(1) {
+    background: #666; /* Цвет фона */
+    color: #fff; /* Цвет текста */
+} 
