@@ -1,0 +1,40 @@
+#director {
+  font-family: Helvetica;
+
+}
+#manager {
+  font-family: Times;
+
+}
+#founder {
+  font-family: Verdana;
+}
+.dir {
+  text-align: center;
+  color: red;
+
+}
+.manag {
+  text-align: center;
+  color: green;
+}
+.found{
+  text-align: center;
+  color: blue;
+}
+.spn {
+  font-family: Georgia, sans-serif;
+  color: #e58b15;
+}
+#uli {
+  color: #e5155d;
+}
+#ulii {
+  color: #e53f15
+}
+#uliii {
+  color: #1518e5;
+}
+#uliiii {
+  color: #999a04;
+}
