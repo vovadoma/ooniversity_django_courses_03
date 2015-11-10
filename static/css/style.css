@@ -41,7 +41,7 @@ body{
 }
 
 .tag-name:hover{
-	text-decoration: underline yellow;
+	text-decoration: underline #333;
 }
 
 .content{
@@ -88,20 +88,6 @@ table.table-program{
 .head-name{
 	background-color:  	#f4d8d8;
 }
-
-#scrollup {
-position: fixed; /* фиксированная позиция */
-opacity: 0.8; /* прозрачность */
-padding: 15px 10px 10px; /* отступы */
-background: #aaa;
-border-radius: 5px; /* скругление углов */
--webkit-border-radius: 5px;
--moz-border-radius: 5px;
-left: 10px; /* отступ слева */
-bottom: 10px; /* отступ снизу */
-display: none; /* спрятать блок */
-cursor: pointer;
-}
 /*** end Main page settings ***/
 
 /*** Contacts page settings ***/
@@ -126,26 +112,46 @@ div.contact-person{
 	color: blue;
 	font-size: 2em;
 	text-align: center;
-	text-decoration: underline dotted yellow;
 }
 
 #director{
 	font-size: 1.5em;
 }
 
-#manager, #founder{
+#manager{
 	font-size: 1.2em;
 }
-span.contact-name, span.contact-skype, span.contact-email, span.contact-phone{
+
+#founder{
+	font-size: 1.2em;
+}
+
+span.contact-name{
 	text-decoration: underline;
 	margin-right: 10px;
 }
+span.contact-skype, span.contact-email, span.contact-phone{
+	text-decoration: underline;
+	margin-right: 10px;
+}
+
+span.contact-email{
+	text-decoration: underline;
+	margin-right: 10px;
+}
+
+span.contact-phone{
+	text-decoration: underline;
+	margin-right: 10px;
+}
+
 p.contact-name{
 	font-weight: bold; 
 }
-h2.position-organization {
+
+span.position-organization {
 	color: #736c7a;
 	text-align: center;
-	text-decoration: underline dotted yellow;
+	text-decoration: underline;
 }
 /*** ens Contacts page settings ***/
