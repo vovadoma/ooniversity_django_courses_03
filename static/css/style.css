@@ -1,0 +1,51 @@
+body {
+	font: 14px Arial;
+}
+
+p {
+	margin-bottom: 0;
+}
+
+p + p {
+	margin-top: 20px;
+}
+
+.purple{
+	color: purple;
+}
+
+.red {
+	color: red;
+}
+.blue {
+	color: blue;
+}
+
+.green {
+	color: green;
+}
+
+.orange {
+	color: orange;
+}
+
+.black {
+	color: black;
+}
+
+.lemon {
+	color: #CCFF33;
+}
+
+.dark-blue {
+	color: #000066;
+}
+
+.ff {
+	color: #FF66FF;
+}
+
+.dark-orange {
+	color: #CC3300;
+}
+
