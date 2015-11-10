@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Main page</title>
+
+    <!-- Bootstrap -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+		<nav class="navbar navbar-default navbar-static-top">
+  		<div class="container">
+    ...
+  		</div>
+		</nav>
+		<div class ='container'>
+			<h2 class='possition'>Description</h2>
+
+			<p>Python course can be easy to pick up whether you're a first time programmer or you're experienced with other languages. PyBursa is a useful first step to get on your way writing programs with Python!</p>
+
+			<p>The online conferences and meetups, collaborates on code, and much more. Online videos will help you along the way, and the mailing lists will keep you in touch.</p>
+
+			<h2 class='possition'>Program</h2>
+
+			<table border="1" width="500" align="center" cellpadding="10">
+			<tr><th>Lesson</th><th>Theme</th>
+			<tr align="center"><td>1</td><td>Basic Python</td>
+			<tr align="center"><td>2</td><td>Strings, dictionary, list, integer, tuple</td>
+			<tr align="center"><td>3</td><td>for, while, if</td>
+			<tr align="center"><td>4</td><td>functions, class</td>
+			<tr align="center"><td>5</td><td>basic html/css</td>
+			<tr align="center"><td>6</td><td>basic Java Sript</td>
+			<tr align="center"><td>7</td><td>Django first steps</td>
+			<tr align="center"><td>8</td><td>Forms, class-based views</td>
+			</table>
+		</div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
+
+

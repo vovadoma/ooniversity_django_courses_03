@@ -1,0 +1,53 @@
+.name{
+margin:20px;
+border: 10px;
+padding-left: 50px;
+}
+
+img{
+height: 300px;
+width: 220px;
+}
+
+.possition{
+text-align: center;
+font-weight: bold;
+}
+
+.proffesion{
+float: inherit;
+padding: 20px;
+}
+
+.text{
+padding: 25px;
+text-indent: 20px;
+font-size:20px;
+text-align: justify;
+}
+
+.text2{
+padding: 25px;
+padding-top: 2px;
+text-indent: 20px;
+font-size:20px;
+text-align: justify;
+}
+
+.table{
+padding-bottom: 25px;
+}
+
+#bursa{
+font-style: italic;
+}
+
+.grey{
+background-color: #CAC0FC;
+}
+
+.title_table{
+text-transform: uppercase;
+text-align: center;
+background-color: #CB91F7;
+}
