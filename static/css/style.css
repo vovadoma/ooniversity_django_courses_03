@@ -1,0 +1,151 @@
+.logo-minions{
+	width: 30px;
+	height: 30px;
+	margin: 0;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container-fluid{
+	background-color: #4d4dff;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #a6ff4d;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus{
+  color: #a6ff4d;
+  background-color: #8282ff;
+}	
+.collapse navbar-collapse .nav navbar-nav .acrive {
+	background-color: #ffff4d;
+}
+/*** Main page settings ***/
+body{
+	font-family: Comic;
+	font-size: 16px;
+}
+.tag-name{
+	font-size: 2em;
+	margin: 0.67em 0;
+	text-align: center;
+	color: #1e1e66;
+}
+
+.tag-name:hover{
+	text-decoration: underline yellow;
+}
+
+.content{
+	border: 1px dotted #65d79e;
+	border-radius: 10px;
+	margin: 20px 100px;
+}
+
+.content p{
+	padding-left: 20px;
+}
+p.img-description{
+	text-align: center;
+	font-size: 2em;
+	font-weight: bold;
+	font-style: italic;
+}
+
+img.img-description{
+	border: 1px dotted red;
+	position: relative;
+	width: auto;
+	max-height: 100px;
+}
+
+#py-description{
+	color: #3dcc86;
+}
+
+#description{
+	background-color: #d8e6f4;
+}
+
+#program{
+	background-color: #f4e6d8;
+}
+
+table.table-program{
+	text-align: center;
+	margin-left: 100px;
+	margin-bottom: 50px;
+}
+
+.head-name{
+	background-color:  	#f4d8d8;
+}
+
+#scrollup {
+position: fixed; /* фиксированная позиция */
+opacity: 0.8; /* прозрачность */
+padding: 15px 10px 10px; /* отступы */
+background: #aaa;
+border-radius: 5px; /* скругление углов */
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+left: 10px; /* отступ слева */
+bottom: 10px; /* отступ снизу */
+display: none; /* спрятать блок */
+cursor: pointer;
+}
+/*** end Main page settings ***/
+
+/*** Contacts page settings ***/
+div.tab-pane fade{
+	background-color: red;
+	border: 2px dotted yellow;
+	border-radius: 20px;
+	text-align: center;
+}
+.container-contacts{
+	background-color: #f4e6d8;
+	margin-left: 100px;
+	width: 600px;;
+}
+div.contact-person{
+	background-color: #f4d8d8;
+	border: 2px dotted green;
+	border-radius: 20px;
+	margin: 50px 10px;
+}
+#header-contacts{
+	color: blue;
+	font-size: 2em;
+	text-align: center;
+	text-decoration: underline dotted yellow;
+}
+
+#director{
+	font-size: 1.5em;
+}
+
+#manager, #founder{
+	font-size: 1.2em;
+}
+span.contact-name, span.contact-skype, span.contact-email, span.contact-phone{
+	text-decoration: underline;
+	margin-right: 10px;
+}
+p.contact-name{
+	font-weight: bold; 
+}
+h2.position-organization {
+	color: #736c7a;
+	text-align: center;
+	text-decoration: underline dotted yellow;
+}
+/*** ens Contacts page settings ***/
