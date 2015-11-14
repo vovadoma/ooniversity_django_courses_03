@@ -79,3 +79,35 @@ body {
 .contact-company-info {
   margin: 30px;
 }
+
+.user-list-course {
+  color: blue;
+}
+
+.user-list {
+  padding: 2px;
+}
+
+.table-user-list {
+  border: 1px solid;
+}
+
+.table-user-list-header {
+  color: blue;
+}
+
+.detail-surname {
+  color: blue;
+}
+
+.detail-table {
+  border: 1px solid;
+}
+
+.detail-perfomance{
+  color: blue;
+}
+
+.detail-perfomance-table {
+  border: 1px solid;
+}
