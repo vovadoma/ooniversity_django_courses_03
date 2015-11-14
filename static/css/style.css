@@ -56,10 +56,22 @@ body {
   margin-top: 28px;
 }
 
-.course-name {
+.main-course {
+  color: blue !important;
+}
+
+.main-course-name {
   color: blue;
 }
 
 .contact-boss {
+  color: red;
+}
 
+.contact-address {
+  color: green;
+}
+
+.copy-text {
+  color: gray;
 }
