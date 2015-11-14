@@ -81,5 +81,9 @@ body {
       color: blue;
   }
 
+  p {
+    margin: 2px;
+  }
+
 
 }
