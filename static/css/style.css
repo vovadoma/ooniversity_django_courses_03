@@ -77,13 +77,12 @@ body {
     border-bottom: 0;
   }
 
-  .course-name h3 {
-      color: blue;
+  .course-name {
+    color: blue;
   }
 
-  p {
-    margin: 2px;
+  .contact-boss {
+    color: red;
   }
-
 
 }
