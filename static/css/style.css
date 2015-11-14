@@ -77,27 +77,9 @@ body {
     border-bottom: 0;
   }
 
-  .course-description {
-    color: black;
-  }
-
-  .course-description-header {
-      color: black;
-  }
-
   .course-name {
-      color: black;
-  }
-
-  .course-program {
-  }
-
-  .course-footer {
-    color: green;
-  }
-
-  .contact-footer {
       color: blue;
   }
+
 
 }
