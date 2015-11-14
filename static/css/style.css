@@ -77,7 +77,7 @@ body {
     border-bottom: 0;
   }
 
-  .course-name {
+  .course-name h3 {
       color: blue;
   }
 
