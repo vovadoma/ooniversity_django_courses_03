@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>IT courses equation page</title>
+
+    {% load staticfiles %}
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation"><a href="{% url 'index' %}">Main</a></li>
+            <li role="presentation" class="active"><a href="{% url 'equation' %}">Equation</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">ItBursa Equation</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h4>Quadratic Equation</h4>
+        <form>
+
+            <p>
+                <label for="a">a*x<sup>2</sup>=</label>
+                <input class="quadratic-input" type="text" name="a" value="{{ a }}"/>
+                <label for="b">b*x=</label>
+                <input class="quadratic-input" type="text" name="b" value="{{ b }}"/>
+                <label for="c">c=</label>
+                <input class="quadratic-input" type="text" name="c" value="{{ c }}"/>
+
+                <div class="alert">
+                    {{ txt }}
+                </div>
+
+            </p>
+
+            <p>
+                <input type="submit" value="Result" />
+            </p>
+
+        </form>
+      </div>
+
+      <footer class="footer">
+        <p class="copy-text">&copy; 2015</p>
+      </footer>
+
+    </div>
+
+    <script src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+  </body>
+</html>

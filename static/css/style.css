@@ -111,3 +111,7 @@ body {
 .detail-perfomance-table {
   border: 1px solid;
 }
+
+.quadratic-input {
+  width: 50px;
+}
