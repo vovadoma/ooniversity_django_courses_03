@@ -9,6 +9,7 @@ def quadratic_results(request):
     c = request.GET.get('c')
 
     msg = []
+    dst = ''
 
     if a == '' or b == '' or c == '':
         msg.append(u'коэффициент не определен')
@@ -26,7 +27,7 @@ def quadratic_results(request):
         c = int(c)
 
         ds = b * b - 4 * a * c
-        msg.append(u'Дискриминант: %d' % ds)
+        dst = u'Дискриминант: %d' % ds
 
         if ds < 0:
             msg.append(u'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.')
@@ -38,6 +39,6 @@ def quadratic_results(request):
             x2 = (-b - math.sqrt(ds)) / (2 * a)
             msg.append(u'Квадратное уравнение имеет два действительных корня: x1 = %s, x2 = %s' % (x1, x2))
 
-    data = {'a' : a, 'b' : b, 'c' : c, 'txt' : ', '.join(msg)}
+    data = {'a' : a, 'b' : b, 'c' : c, 'txt' : ', '.join(msg), 'dst' : dst}
 
     return render(request, "quadratic/results.html", data)
