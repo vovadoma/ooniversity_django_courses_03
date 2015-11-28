@@ -13,3 +13,8 @@ class Student(models.Model):
 
     def __unicode__(self):
         return self.surname+' '+self.name
+
+    def _get_full_name(self):
+        return self.name+' '+self.surname
+
+    full_name = property(_get_full_name)

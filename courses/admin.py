@@ -14,4 +14,4 @@ class LessonAdmin(admin.ModelAdmin):
     pass
 
 admin.site.register(Course, CourseAdmin)
-admin.site.register(Lesson, LessonAdmin)
+admin.site.site_header = "PyBursa Administration"
