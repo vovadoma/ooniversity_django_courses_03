@@ -8,6 +8,15 @@ def quadratic_results(request):
     b = request.GET.get('b')
     c = request.GET.get('c')
 
+    if not a:
+        a = ''
+    if not b:
+        b = ''
+    if not c:
+        c = ''
+
+
+
     msg = []
     dst = ''
 

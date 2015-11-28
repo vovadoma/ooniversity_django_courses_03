@@ -1,8 +1,10 @@
 from django.shortcuts import render
-#from django.conf.urls.static import static
+from courses.models import Course
 
 def index(request):
-    return render(request, "index.html")
+    courses = Course.objects.all()
+    data = {'courses' : courses}
+    return render(request, "index.html", data)
 
 def contact(request):
     return render(request, "contact.html")
