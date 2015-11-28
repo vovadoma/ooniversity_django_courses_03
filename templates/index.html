@@ -21,8 +21,8 @@
           <ul class="nav nav-pills pull-right">
             <li role="presentation" class="active"><a href="{% url 'index' %}">Main</a></li>
             <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
-            <li role="presentation"><a href="{% url 'student_list' %}">Students</a></li>
-            <li role="presentation"><a href="{% url 'equation' %}">Equation</a></li>
+            <li role="presentation"><a href="{% url 'students:list_view' %}">Students</a></li>
+            <li role="presentation"><a href="/admin">Admin</a></li>
           </ul>
         </nav>
         <h3 class="text-muted">ItBursa</h3>
@@ -36,9 +36,18 @@
 
       <div class="row marketing">
         <div class="col-lg-6">
-          <h3 class="main-course-name">Course PyBursa</h3>
-          <h4>Description</h4>
-          <p> Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+          <h3 class="main-course-name">Our university</h3>
+          <table>
+            <tr>
+                <th> Курс </th> <th> Описание </th>
+            </tr>
+            {% for course in courses %}
+            <tr>
+                <td> <a href="{% url 'courses:detail' course.id %}"> {{ course }} </a> </td> <td>{{ course.short_description }} </td>
+            </tr>
+            {% endfor %}
+          </table>
+
         </div>
 
         <div class="col-lg-6">
