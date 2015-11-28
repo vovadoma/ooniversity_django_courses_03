@@ -42,7 +42,7 @@
                 <td>
                     <a href="{% url 'students:detail' student.id %}"> {{ student }} </a>
                 </td>
-                <td> {{ student.adress }} </td> <td> {{ student.skype }} </td>
+                <td> {{ student.address }} </td> <td> {{ student.skype }} </td>
                 <td>
                     <ul>
                       {% for course in student.courses.all %}
