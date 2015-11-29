@@ -31,6 +31,21 @@
         <p class="lead">{{ course.description }}</p>
       </div>
 
+      <h3 class="user-list-course">Преподаватели</h3>
+      <p>
+          <h4>Учитель</h4>
+          <a href="{% url 'coaches:detail' course.coach.id %}">
+              <h4>{{course.coach.first_name}} {{course.coach.last_name}}</h4>
+          </a>
+          <p>{{course.coach.description}}</p>
+      </p>
+       <p>
+          <h4>Ассистент</h4>
+          <a href="{% url 'coaches:detail' course.assistant.id %}">
+            <h4>{{course.assistant.first_name}} {{course.assistant.last_name}}</h4>
+          </a>
+          <p>{{course.assistant.description}}</p>
+      </p>
 
       <h3 class="user-list-course">План курса</h3>
 
