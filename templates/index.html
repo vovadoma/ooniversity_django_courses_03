@@ -1,69 +1,33 @@
+{% extends "base.html" %}
 
-<!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+{% load staticfiles %}
 
-    <title>IT courses main page</title>
+{% block title %}IT courses main page{% endblock %}
 
-    {% load staticfiles %}
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+{% block navi %}
+    {% include "include/navi.html" with active_index="active" %}
+{% endblock %}
 
-  </head>
+{% block content %}
 
-  <body>
+    {% include "include/promo.html" %}
 
-    <div class="container">
-      <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="{% url 'index' %}">Main</a></li>
-            <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
-            <li role="presentation"><a href="{% url 'students:list_view' %}">Students</a></li>
-            <li role="presentation"><a href="/admin">Admin</a></li>
-          </ul>
-        </nav>
-        <h3 class="text-muted">ItBursa</h3>
-      </div>
-
-      <div class="jumbotron">
-        <h1 class="main-course">Course Python</h1>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
-      </div>
-
-      <div class="row marketing">
+    <div class="row marketing">
         <div class="col-lg-6">
-          <h3 class="main-course-name">Our university</h3>
-          <table>
-            <tr>
-                <th> Курс </th> <th> Описание </th>
-            </tr>
-            {% for course in courses %}
-            <tr>
-                <td> <a href="{% url 'courses:detail' course.id %}"> {{ course }} </a> </td> <td>{{ course.short_description }} </td>
-            </tr>
-            {% endfor %}
-          </table>
-
+            <h3 class="main-course-name">Список наших курсов</h3>
+            <table>
+                <tr>
+                    <th>Курс</th>
+                    <th>Описание</th>
+                </tr>
+                {% for course in courses %}
+                <tr>
+                    <td><a href="{% url 'courses:detail' course.id %}">{{ course|upper }}</a></td>
+                    <td>{{ course.short_description|title }}</td>
+                </tr>
+                {% endfor %}
+            </table>
         </div>
-
-        <div class="col-lg-6">
-          <h4>Program</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-        </div>
-      </div>
-
-      <footer class="footer">
-        <p class="copy-text">&copy; 2015</p>
-      </footer>
-
     </div>
 
-    <script src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-
-  </body>
-</html>
+{% endblock %}

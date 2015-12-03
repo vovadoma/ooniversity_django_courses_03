@@ -1,69 +1,48 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+{% extends "base.html" %}
 
-    <title>IT courses student list view page</title>
+{% load staticfiles %}
 
-    {% load staticfiles %}
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+{% block title %}IT courses students page{% endblock %}
 
-</head>
-<body>
+{% block navi %}
+    {% include "include/navi.html" with active_students="active" %}
+{% endblock %}
 
-    <div class="container">
-      <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation"><a href="{% url 'index' %}">Main</a></li>
-            <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
-            <li role="presentation" class="active"><a href="{% url 'students:list_view' %}">Students</a></li>
-            <li role="presentation"><a href="/admin">Admin</a></li>
-          </ul>
-        </nav>
-        <h3 class="text-muted">ItBursa</h3>
-      </div>
+{% block content %}
 
-      <div class="page-header">
+    <div class="page-header">
         <h1 class="user-list-course">Список студентов</h1>
-      </div>
+    </div>
 
-      <div class="user-list">
+    <div class="user-list">
 
-          <table>
+        <table>
             <tr>
-                <th> # </th> <th> Фамилия имя </th> <th> адрес </th>  <th> skype </th>  <th> курсы </th>
+                <th>#</th>
+                <th>Фамилия имя</th>
+                <th>адрес</th>
+                <th>skype</th>
+                <th>курсы</th>
             </tr>
-            {% for student in students %}
+                {% for student in students %}
             <tr>
-                <td> {{ student.id }} </td>
+                <td>{{ student.id }}</td>
                 <td>
-                    <a href="{% url 'students:detail' student.id %}"> {{ student }} </a>
+                    <a href="{% url 'students:detail' student.id %}">{{ student }}</a>
                 </td>
-                <td> {{ student.address }} </td> <td> {{ student.skype }} </td>
+                <td>{{ student.address }}</td>
+                <td>{{ student.skype }}</td>
                 <td>
                     <ul>
-                      {% for course in student.courses.all %}
-                        <li><a href="{% url 'courses:detail' course.id %}"> {{ course }} </a></li>
-                      {% endfor %}
+                        {% for course in student.courses.all %}
+                            <li><a href="{% url 'courses:detail' course.id %}">{{ course }}</a></li>
+                        {% endfor %}
                     </ul>
                 </td>
             </tr>
             {% endfor %}
-          </table>
-
-      </div>
-
-      <footer class="footer">
-        <p class="copy-text">&copy; 2015</p>
-      </footer>
+        </table>
 
     </div>
 
-    <script src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-
-</body>
-</html>
+{% endblock %}
