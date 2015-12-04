@@ -11,7 +11,7 @@ def list_view(request):
         students = Student.objects.all()
 
     data = {'students': students}
-    return render(request, 'students/list_view.html', data)
+    return render(request, 'students/list.html', data)
 
 def detail(request, student_id):
     student = Student.objects.get(id=student_id)
