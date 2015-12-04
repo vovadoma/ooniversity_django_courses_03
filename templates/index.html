@@ -2,11 +2,11 @@
 
 {% load staticfiles %}
 
-{% block title %}IT courses main page{% endblock %}
+{% block title %}IT courses main page{% endblock title %}
 
 {% block navi %}
     {% include "include/navi_include.html" with active_index="active" %}
-{% endblock %}
+{% endblock navi %}
 
 {% block content %}
 
@@ -30,4 +30,4 @@
         </div>
     </div>
 
-{% endblock %}
+{% endblock content %}

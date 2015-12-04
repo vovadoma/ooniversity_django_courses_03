@@ -2,11 +2,11 @@
 
 {% load staticfiles %}
 
-{% block title %}IT courses coaches detail page{% endblock %}
+{% block title %}IT courses coaches detail page{% endblock title %}
 
 {% block navi %}
     {% include "include/navi_include.html" with active_coaches="active" %}
-{% endblock %}
+{% endblock navi %}
 
 {% block content %}
 
@@ -71,4 +71,4 @@
         </table>
     </div>
 
-{% endblock %}
+{% endblock content %}

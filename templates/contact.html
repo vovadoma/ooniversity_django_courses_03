@@ -2,11 +2,11 @@
 
 {% load staticfiles %}
 
-{% block title %}IT courses contact page{% endblock %}
+{% block title %}IT courses contact page{% endblock title %}
 
 {% block navi %}
     {% include "include/navi_include.html" with active_contact="active" %}
-{% endblock %}
+{% endblock navi %}
 
 {% block content %}
 
@@ -35,4 +35,4 @@
         <p>Company info </p>
     </div>
 
-{% endblock %}
+{% endblock content %}
