@@ -5,13 +5,13 @@
 {% block title %}IT courses students detail page{% endblock %}
 
 {% block navi %}
-    {% include "include/navi.html" with active_students="active" %}
+    {% include "include/navi_include.html" with active_students="active" %}
 {% endblock %}
 
 {% block content %}
 
     <div class="page-header">
-        <h1 class="detail-surname">{{ student.name}} {{student.surname}}</h1>
+        <h1 class="detail-surname">{{ student.name }} {{ student.surname }}</h1>
     </div>
 
     <div>

@@ -5,7 +5,7 @@
 {% block title %}IT courses coaches detail page{% endblock %}
 
 {% block navi %}
-    {% include "include/navi.html" with active_coaches="active" %}
+    {% include "include/navi_include.html" with active_coaches="active" %}
 {% endblock %}
 
 {% block content %}
@@ -57,7 +57,7 @@
                 <td>
                     <ul>
                         {% for course in coach.assistant_courses.all %}
-                        <li><a href="{% url 'courses:detail' course.id %}"> {{ course }} </a>
+                        <li><a href="{% url 'courses:detail' course.id %}">{{ course }}</a>
 
                             <p>студенты курса <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">
                                 <span class="glyphicon glyphicon-user"></span>

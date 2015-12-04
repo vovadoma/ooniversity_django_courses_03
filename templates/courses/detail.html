@@ -5,7 +5,7 @@
 {% block title %}IT courses course detail page{% endblock %}
 
 {% block navi %}
-    {% include "include/navi.html" with course_id_param="?course_id=" course_id=course.id %}
+    {% include "include/navi_include.html" with course_id_param="?course_id=" course_id=course.id %}
 {% endblock %}
 
 {% block content %}
@@ -19,15 +19,15 @@
 
     <h4>Учитель</h4>
     <a href="{% url 'coaches:detail' course.coach.id %}">
-        <h4>{{course.coach.first_name}} {{course.coach.last_name}}</h4>
+        <h4>{{ course.coach.first_name }} {{ course.coach.last_name }}</h4>
     </a>
-    <p>{{course.coach.description}}</p>
+    <p>{{ course.coach.description }}</p>
 
     <h4>Ассистент</h4>
     <a href="{% url 'coaches:detail' course.assistant.id %}">
-        <h4>{{course.assistant.first_name}} {{course.assistant.last_name}}</h4>
+        <h4>{{ course.assistant.first_name }} {{ course.assistant.last_name }}</h4>
     </a>
-    <p>{{course.assistant.description}}</p>
+    <p>{{ course.assistant.description }}</p>
 
     <h3 class="user-list-course">План курса</h3>
 
