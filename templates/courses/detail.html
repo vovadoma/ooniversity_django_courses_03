@@ -2,11 +2,11 @@
 
 {% load staticfiles %}
 
-{% block title %}IT courses course detail page{% endblock %}
+{% block title %}IT courses course detail page{% endblock title %}
 
 {% block navi %}
     {% include "include/navi_include.html" with course_id_param="?course_id=" course_id=course.id %}
-{% endblock %}
+{% endblock navi %}
 
 {% block content %}
 
@@ -48,4 +48,4 @@
         </table>
     </div>
 
-{% endblock %}
+{% endblock content %}
