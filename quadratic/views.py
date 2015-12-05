@@ -1,29 +1,27 @@
-# coding: utf-8
 from django.shortcuts import render
+
 from quadratic.forms import QuadraticForm
 
+
 def quadratic_results(request):
-
-    a = b = c = ''
-    ds = x1 = x2 = 0
-
+    context = {}
     if request.GET:
         form = QuadraticForm(request.GET)
+        context['form'] = QuadraticForm(request.GET)
         if form.is_valid():
             a = form.cleaned_data['a']
             b = form.cleaned_data['b']
             c = form.cleaned_data['c']
 
-            ds = b * b - 4 * a * c
-
-            if ds == 0:
-                x1 = float((-b + ds ** (1/2.0)) / (2 * a))
-            elif ds > 0:
-                x1 = float((-b + ds ** (1/2.0)) / (2 * a))
-                x2 = float((-b - ds ** (1/2.0)) / (2 * a))
+            context['discrim'] = b ** 2 - 4 * a * c
+            if context['discrim'] > 0:
+                context['x1'] = float(
+                    (-b + context['discrim']**(1 / 2.0)) / (2 * a))
+                context['x2'] = float(
+                    (-b - context['discrim']**(1 / 2.0)) / (2 * a))
+            elif int(context['discrim']) == 0:
+                context['x1'] = context[
+                    'x2'] = float(-b / (2 * a))
     else:
-        form = QuadraticForm()
-
-    data = {'x1': x1, 'x2': x2, 'ds': ds, 'form': form}
-
-    return render(request, "quadratic/results.html", data)
+        context['form'] = QuadraticForm()
+    return render(request, 'quadratic/results.html', context)
