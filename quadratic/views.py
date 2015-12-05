@@ -7,6 +7,7 @@ def quadratic_results(request):
 
     a = b = c = ''
     msg = []
+    disk = ''
 
     if request.GET:
         form = QuadraticForm(request.GET)
@@ -16,7 +17,7 @@ def quadratic_results(request):
             c = form.cleaned_data['c']
 
             ds = b * b - 4 * a * c
-            msg.append(u'Дискриминант: %d' % ds)
+            disk = u'Дискриминант: %d' % ds
 
             if ds < 0:
                 msg.append(u'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.')
@@ -30,6 +31,6 @@ def quadratic_results(request):
     else:
         form = QuadraticForm()
 
-    data = {'a': a, 'b': b, 'c': c, 'txt': ', '.join(msg), 'form': form}
+    data = {'a': a, 'b': b, 'c': c, 'txt': ', '.join(msg), 'disk': disk, 'form': form}
 
     return render(request, "quadratic/results.html", data)
