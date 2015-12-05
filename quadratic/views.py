@@ -13,13 +13,13 @@ def quadratic_results(request):
             b = form.cleaned_data['b']
             c = form.cleaned_data['c']
 
-            context['discrim'] = b ** 2 - 4 * a * c
-            if context['discrim'] > 0:
+            context['ds'] = b ** 2 - 4 * a * c
+            if context['ds'] > 0:
                 context['x1'] = float(
-                    (-b + context['discrim']**(1 / 2.0)) / (2 * a))
+                    (-b + context['ds']**(1 / 2.0)) / (2 * a))
                 context['x2'] = float(
-                    (-b - context['discrim']**(1 / 2.0)) / (2 * a))
-            elif int(context['discrim']) == 0:
+                    (-b - context['ds']**(1 / 2.0)) / (2 * a))
+            elif int(context['ds']) == 0:
                 context['x1'] = context[
                     'x2'] = float(-b / (2 * a))
     else:
