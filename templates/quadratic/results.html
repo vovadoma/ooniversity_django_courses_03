@@ -1,25 +1,11 @@
+{% extends "base.html" %}
+
 {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Main Page</title>
-    <!-- Bootstrap -->
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-              <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-              <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-            <![endif]-->
-</head>
+{% block title %}IT courses equation page{% endblock title %}
 
-<body>
+{% block content %}
+
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -28,25 +14,18 @@
                     {{ form.as_p }}
                     <input type="submit" value="Решить" />
                 </form>
-                {% if discrim or discrim == 0 %}
-                    <h4>Дискриминант: {{ discrim }}</h4>
+                {% if ds or ds == 0 %}
+                    <h4>Дискриминант: {{ ds }}</h4>
 
-                    {% if discrim > 0 %}
+                    {% if ds > 0 %}
                         <h5>Квадратное уравнение имеет два действительных корня: x1 = {{ x1 }}, x2 = {{ x2 }}</h5>
                     {% elif discrim == 0 %}
                         <h5>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{ x1 }}</h5>
-                    {% elif discrim < 0 %}
+                    {% elif ds < 0 %}
                         <h5>Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.</h5>
                     {% endif %}
                 {% endif %}
             </div>
         </div>
 
-    </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-</body>
-
-</html>
+{% endblock content %}
