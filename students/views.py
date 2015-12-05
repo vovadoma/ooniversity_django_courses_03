@@ -23,7 +23,7 @@ def create(request):
         if form.is_valid():
             student = form.save()
             messages.success(request, 'Student %s %s has been successfully added.' % (student.name, student.surname))
-            return redirect('students:list_view')
+            return redirect('students:list')
     else:
         form = StudentModelForm()
     data = {'form': form}
@@ -34,6 +34,7 @@ def edit(request, student_id):
     if request.method == "POST":
         form = StudentModelForm(request.POST, instance=student)
         if form.is_valid():
+            form.save()
             messages.success(request, 'Info on the student has been sucessfully changed.')
     else:
         form = StudentModelForm(instance=student)
