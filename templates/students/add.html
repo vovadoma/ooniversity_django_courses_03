@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}IT courses add students page{% endblock title %}
+
+{% block navi %}
+    {% include "include/navi_include.html" with active_students="active" %}
+{% endblock navi %}
+
+{% block content %}
+
+    <div class="page-header">
+        <h1 class="user-list-course">Добавить нового студента</h1>
+    </div>
+
+    <div class="user-list">
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Добавить"/>
+        </form>
+
+    </div>
+
+{% endblock content %}
