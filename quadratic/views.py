@@ -5,8 +5,7 @@ from quadratic.forms import QuadraticForm
 def quadratic_results(request):
 
     a = b = c = ''
-    msg = []
-    disk = ''
+    ds = x1 = x2 = 0
 
     if request.GET:
         form = QuadraticForm(request.GET)
@@ -16,20 +15,15 @@ def quadratic_results(request):
             c = form.cleaned_data['c']
 
             ds = b * b - 4 * a * c
-            disk = 'Дискриминант: %d' % ds
 
-            if ds < 0:
-                msg.append('Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.')
-            elif ds == 0:
-                x1 = (-b + ds ** (1/2.0)) / (2 * a)
-                msg.append('Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %.1f' % x1)
-            else:
-                x1 = (-b + ds ** (1/2.0)) / (2 * a)
-                x2 = (-b - ds ** (1/2.0)) / (2 * a)
-                msg.append('Квадратное уравнение имеет два действительных корня: x1 = %.1f, x2 = %.1f' % (x1, x2))
+            if ds == 0:
+                x1 = float((-b + ds ** (1/2.0)) / (2 * a))
+            elif ds > 0:
+                x1 = float((-b + ds ** (1/2.0)) / (2 * a))
+                x2 = float((-b - ds ** (1/2.0)) / (2 * a))
     else:
         form = QuadraticForm()
 
-    data = {'a': a, 'b': b, 'c': c, 'txt': ', '.join(msg), 'disk': disk, 'form': form}
+    data = {'x1': x1, 'x2': x2, 'ds': ds, 'form': form}
 
     return render(request, "quadratic/results.html", data)
