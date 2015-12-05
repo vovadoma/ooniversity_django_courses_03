@@ -1,53 +1,35 @@
 # coding: utf-8
 from django.shortcuts import render
+from quadratic.forms import QuadraticForm
 import math
 
 def quadratic_results(request):
 
-    a = request.GET.get('a')
-    b = request.GET.get('b')
-    c = request.GET.get('c')
-
-    if not a:
-        a = ''
-    if not b:
-        b = ''
-    if not c:
-        c = ''
-
-
-
+    a = b = c = ''
     msg = []
-    dst = ''
 
-    if a == '' or b == '' or c == '':
-        msg.append(u'коэффициент не определен')
+    if request.GET:
+        form = QuadraticForm(request.GET)
+        if form.is_valid():
+            a = form.cleaned_data['a']
+            b = form.cleaned_data['b']
+            c = form.cleaned_data['c']
 
-    if not (a.replace('-', '').isdigit() and b.replace('-', '').isdigit() and c.replace('-', '').isdigit()):
-        msg.append(u'коэффициент не целое число')
+            ds = b * b - 4 * a * c
+            msg.append(u'Дискриминант: %d' % ds)
 
-    if a.replace('-', '').isdigit() and int(a) == 0:
-        msg.append(u'коэффициент при первом слагаемом уравнения не может быть равным нулю')
+            if ds < 0:
+                msg.append(u'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.')
+            elif ds == 0:
+                x1 = (-b + math.sqrt(ds)) / (2 * a)
+                msg.append(u'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %.1f' % x1)
+            else:
+                x1 = (-b + math.sqrt(ds)) / (2 * a)
+                x2 = (-b - math.sqrt(ds)) / (2 * a)
+                msg.append(u'Квадратное уравнение имеет два действительных корня: x1 = %.1f, x2 = %.1f' % (x1, x2))
+    else:
+        form = QuadraticForm()
 
-
-    if not len(msg):
-        a = int(a)
-        b = int(b)
-        c = int(c)
-
-        ds = b * b - 4 * a * c
-        msg.append(u'Дискриминант: %d' % ds)
-
-        if ds < 0:
-            msg.append(u'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.')
-        elif ds == 0:
-            x1 = (-b + math.sqrt(ds)) / (2 * a)
-            msg.append(u'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %s' % x1)
-        else:
-            x1 = (-b + math.sqrt(ds)) / (2 * a)
-            x2 = (-b - math.sqrt(ds)) / (2 * a)
-            msg.append(u'Квадратное уравнение имеет два действительных корня: x1 = %s, x2 = %s' % (x1, x2))
-
-    data = {'a' : a, 'b' : b, 'c' : c, 'txt' : ', '.join(msg)}
+    data = {'a': a, 'b': b, 'c': c, 'txt': ', '.join(msg), 'form': form}
 
     return render(request, "quadratic/results.html", data)

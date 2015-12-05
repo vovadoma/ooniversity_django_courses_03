@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}IT courses equation page{% endblock title %}
+
+{% block content %}
+
+  <div class="jumbotron">
+    <h4>Quadratic Equation</h4>
+    <form metod="get">
+        {{ form.as_p }}
+        <p>{{ txt }}</p>
+        <p><input type="submit" value="Result"/></p>
+    </form>
+  </div>
+
+{% endblock content %}
