@@ -13,7 +13,7 @@
     <div class="page-header">
         <h1 class="user-list-course">Список студентов</h1>
     </div>
-
+    <a href="{% url 'students:add' %}" class="btn btn-info">добавить студента</a>
     <div class="user-list">
 
         <table>
@@ -37,6 +37,8 @@
                         {% for course in student.courses.all %}
                             <li><a href="{% url 'courses:detail' course.id %}">{{ course }}</a></li>
                         {% endfor %}
+                        <li><a href="{% url 'students:edit' student.id %}" class="btn btn-info">Изменить</a></li>
+                        <li><a href="{% url 'students:remove' student.id %}" class="btn btn-info">Удалить</a></li>
                     </ul>
                 </td>
             </tr>

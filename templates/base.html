@@ -14,6 +14,14 @@
 <body>
 <div class="container">
 
+
+    {% if messages %}
+        <div class="alert alert-info alert-success" role="alert">
+            {% for message in messages %} {{ message }} {% endfor %}
+        </div>
+    {% endif %}
+
+
     <div class="header clearfix">
         {% block navi %}{% endblock navi %}
         <h3 class="text-muted">Компания ItBursa</h3>
