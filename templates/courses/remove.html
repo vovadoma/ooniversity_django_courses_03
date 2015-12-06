@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}IT courses delete courses page{% endblock title %}
+
+{% block navi %}
+    {% include "include/navi_include.html" with active_students="active" %}
+{% endblock navi %}
+
+{% block content %}
+
+    <div class="page-header">
+        <h1 class="user-list-course">Список курсов</h1>
+    </div>
+
+    <div class="user-list">
+
+        <h4>Курс {{ course.name }} будет удален</h4>
+        <form method="post">
+            {% csrf_token %}
+            <input type="submit" value="Удалить" />
+        </form>
+
+    </div>
+
+{% endblock content %}
