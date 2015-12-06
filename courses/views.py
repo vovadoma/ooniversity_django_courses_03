@@ -10,7 +10,7 @@ def detail(request, course_id):
     data = {'course': course, 'lessons': lessons}
     return render(request, 'courses/detail.html', data)
 
-def create(request):
+def add(request):
     if request.method == "POST":
         form = CourseModelForm(request.POST)
         if form.is_valid():
