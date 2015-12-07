@@ -11,11 +11,11 @@
 {% block content %}
 
     <div class="course-detail-header">
-        <h3 class="user-list-course">{{ course }}</h3>
+        <h3>{{ course }}</h3>
         <p class="lead">{{ course.description|truncatechars:32 }}</p>
     </div>
 
-    <h3 class="user-list-course">Преподаватели</h3>
+    <h3>Преподаватели</h3>
 
     <h4>Учитель</h4>
     <a href="{% url 'coaches:detail' course.coach.id %}">
@@ -29,7 +29,7 @@
     </a>
     <p>{{ course.assistant.description }}</p>
 
-    <h3 class="user-list-course">План курса</h3>
+    <h3>План курса</h3>
 
     <a href="{% url 'courses:add-lesson' course.id %}" class="btn btn-info">добавить занятие</a>
 

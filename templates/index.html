@@ -24,6 +24,8 @@
                 <tr>
                     <td><a href="{% url 'courses:detail' course.id %}">{{ course|upper }}</a></td>
                     <td>{{ course.short_description|title }}</td>
+                    <td><a href="{% url 'courses:edit' course.id %}" class="btn btn-info">Edit</a></td>
+			        <td><a href="{% url 'courses:remove' course.id %}" class="btn btn-info">Delete</a></td>
                 </tr>
                 {% endfor %}
             </table>
