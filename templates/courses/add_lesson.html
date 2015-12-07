@@ -11,14 +11,14 @@
 {% block content %}
 
     <div class="page-header">
-        <h1 class="user-list-course">Добавить новое занятие</h1>
+        <h3>Добавить новое занятие</h3>
     </div>
 
-    <div class="user-list">
+    <div>
 
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ form.as_table }}
             <input type="submit" value="Добавить"/>
         </form>
 
