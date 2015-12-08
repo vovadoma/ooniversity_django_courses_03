@@ -56,3 +56,6 @@ def add_lesson(request, course_id):
         form = LessonModelForm(initial={'course': course_id})
     data = {'form': form}
     return render(request, 'courses/add_lesson.html', data)
+
+    def get_success_url(self):
+        return self.object.get_url()
