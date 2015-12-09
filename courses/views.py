@@ -84,6 +84,9 @@ class LessonCreateView(MixinMsg, MixinTitle, CreateView):
     def get_success_url(self):
         return self.object.get_url()
 
+    def get_initial(self):
+        return {'course': self.kwargs['pk']}
+
 
 
 
