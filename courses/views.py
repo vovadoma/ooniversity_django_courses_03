@@ -4,12 +4,19 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from courses.models import Course, Lesson
+from pybursa.views import MixinMsg, MixinTitle
 
 
 class CourseDetailView(DetailView):
     model = Course
     template_name = 'courses/detail.html'
     context_object_name = 'course'
+
+    def get_context_data(self, **kwargs):
+        data = super(CourseDetailView, self).get_context_data(**kwargs)
+        lessons = Lesson.objects.filter(course=self.object).order_by('order')
+        data['lessons'] = lessons
+        return data
 
 class CourseCreateView(CreateView):
     model = Course
@@ -19,9 +26,7 @@ class CourseCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         data = super(CourseCreateView, self).get_context_data(**kwargs)
-        lessons = Lesson.objects.filter(course=self.object).order_by('order')
         data['title'] = 'Course creation'
-        data['lessons'] = lessons
         return data
 
     def form_valid(self, form):
@@ -69,20 +74,12 @@ class CourseDeleteView(DeleteView):
         messages.success(self.request, 'Course %s has been deleted.' % (self.course_name))
         return reverse_lazy('index')
 
-class LessonCreateView(CreateView):
+class LessonCreateView(MixinMsg, MixinTitle, CreateView):
     model = Lesson
     template_name = 'courses/add_lesson.html'
     context_object_name = 'lesson'
-
-    def get_context_data(self, **kwargs):
-        data = super(LessonCreateView, self).get_context_data(**kwargs)
-        data['title'] = 'Lesson creation'
-        return data
-
-    def form_valid(self, form):
-        lesson = form.save()
-        messages.success(self.request, 'Lesson %s has been successfully added.' % (lesson.subject))
-        return super(LessonCreateView, self).form_valid(form)
+    title = 'Lesson creation'
+    success_message = {'msg': 'Lesson %s has been successfully added.', 'attr': 'subject'}
 
     def get_success_url(self):
         return self.object.get_url()
