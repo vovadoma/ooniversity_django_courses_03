@@ -1,4 +1,3 @@
-from django.conf.urls import patterns
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
@@ -49,10 +48,14 @@ class StudentUpdateView(UpdateView):
         messages.success(self.request, 'Info on the student has been sucessfully changed.')
         return super(StudentUpdateView, self).form_valid(form)
 
+    def get_success_url(self):
+        return reverse_lazy('students:edit', None, [self.object.id])
 
 class StudentDeleteView(DeleteView):
     model = Student
     success_url = reverse_lazy('students:list_view')
+    student_name = ''
+    student_surname = ''
 
     def get_context_data(self, **kwargs):
         data = super(StudentDeleteView, self).get_context_data(**kwargs)
@@ -61,41 +64,10 @@ class StudentDeleteView(DeleteView):
 
     def get_object(self, queryset=None):
         object = super(StudentDeleteView, self).get_object()
-        if object:
-            messages.success(self.request, 'Info on %s %s has been sucessfully deleted.' % (object.name, object.surname))
+        self.student_name = object.name
+        self.student_surname = object.surname
         return object
 
-
-
-# def create(request):
-#     if request.method == "POST":
-#         form = StudentModelForm(request.POST)
-#         if form.is_valid():
-#             student = form.save()
-#             messages.success(request, 'Student %s %s has been successfully added.' % (student.name, student.surname))
-#             return redirect('students:list_view')
-#     else:
-#         form = StudentModelForm()
-#     data = {'form': form}
-#     return render(request, 'students/add.html', data)
-
-# def edit(request, student_id):
-#     student = Student.objects.get(id=student_id)
-#     if request.method == "POST":
-#         form = StudentModelForm(request.POST, instance=student)
-#         if form.is_valid():
-#             form.save()
-#             messages.success(request, 'Info on the student has been sucessfully changed.')
-#     else:
-#         form = StudentModelForm(instance=student)
-#     data = {'form': form}
-#     return render(request, 'students/edit.html', data)
-#
-# def remove(request, student_id):
-#     student = Student.objects.get(id=student_id)
-#     if request.method == "POST":
-#         student.delete()
-#         messages.success(request, 'Info on %s %s has been sucessfully deleted.' % (student.name, student.surname))
-#         return redirect('students:list_view')
-#     data = {'student': student}
-#     return render(request, 'students/remove.html', data)
+    def get_success_url(self):
+        messages.success(self.request, 'Info on %s %s has been sucessfully deleted.' % (self.student_name, self.student_surname))
+        return self.success_url

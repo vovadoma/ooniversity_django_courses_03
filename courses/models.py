@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse_lazy
 
 from coaches.models import Coach
 
@@ -20,7 +20,7 @@ class Lesson(models.Model):
     order = models.PositiveIntegerField()
 
     def get_url(self):
-        return reverse('courses:list_view')
+        return reverse_lazy('courses:detail', None, [self.course.id])
 
     def __unicode__(self):
         return self.subject
