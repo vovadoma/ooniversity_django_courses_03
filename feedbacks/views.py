@@ -12,5 +12,6 @@ class FeedbackView(CreateView):
 
     def form_valid(self, form):
         form.save()
+        #TODO send email
         messages.success(self.request, 'Thank you for your feedback! We will keep in touch with you very soon!')
         return super(FeedbackView, self).form_valid(form)
