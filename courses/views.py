@@ -57,22 +57,16 @@ class CourseDeleteView(DeleteView):
     success_url = reverse_lazy('index')
     template_name = 'courses/remove.html'
     context_object_name = 'course'
-    course_name = ''
 
     def get_context_data(self, **kwargs):
         data = super(CourseDeleteView, self).get_context_data(**kwargs)
         data['title'] = 'Course deletion'
-        self.course_name = self.object.name
         return data
 
-    def get_object(self, queryset=None):
-        object = super(CourseDeleteView, self).get_object()
-        self.course_name = object.name
-        return object
-
-    def get_success_url(self):
-        messages.success(self.request, 'Course %s has been deleted.' % (self.course_name))
-        return reverse_lazy('index')
+    def delete(self, request, *args, **kwargs):
+        ret_msg = super(CourseDeleteView, self).delete(request, *args, **kwargs)
+        messages.success(self.request, 'Course %s has been deleted.' % (self.object.name))
+        return ret_msg
 
 class LessonCreateView(MixinMsg, MixinTitle, CreateView):
     model = Lesson
