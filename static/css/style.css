@@ -115,3 +115,18 @@ body {
 .quadratic-input {
   width: 50px;
 }
+
+table {
+  width: 80%;
+  border: 1px solid #255059;
+}
+
+th {
+  background: gray;
+  text-align: left;
+}
+
+tr {
+  background: #F2EBDF;
+  border: 1px solid #255059;
+}
