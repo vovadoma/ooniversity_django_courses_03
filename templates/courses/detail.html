@@ -11,7 +11,8 @@
 {% block content %}
 
     <div class="course-detail-header">
-        <h3>{{ course }}</h3>
+        <h3>{{ title }}</h3>
+        <h4>{{ course }}</h4>
         <p class="lead">{{ course.description|truncatechars:32 }}</p>
     </div>
 
