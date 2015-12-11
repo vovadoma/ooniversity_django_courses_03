@@ -2,26 +2,26 @@
 
 {% load staticfiles %}
 
-{% block title %}IT courses add courses page{% endblock title %}
+{% block title %}IT courses feedback page{% endblock title %}
 
 {% block navi %}
-    {% include "include/navi_include.html" with active_students="active" %}
+    {% include "include/navi_include.html" with active_feedback="active" %}
 {% endblock navi %}
 
 {% block content %}
 
     <div class="page-header">
-        <h3>{{ title }}</h3>
+        <h1 class="user-list-course">Courses feedback</h1>
     </div>
 
-    <div>
+    <div class="user-list">
 
         <form method="post">
             {% csrf_token %}
             <table>
                 {{ form.as_table }}
             </table>
-            <input type="submit" value="Добавить"/>
+            <input type="submit" value="Send"/>
         </form>
 
     </div>
