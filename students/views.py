@@ -29,8 +29,17 @@ class StudentListView(ListView):
             students_list = paginator.page(1)
         except EmptyPage:
             students_list = paginator.page(paginator.num_pages)
-
         return students_list
+
+    def get_context_data(self, **kwargs):
+        data = super(StudentListView, self).get_context_data(**kwargs)
+        course_id = self.request.GET.get('course_id')
+        if not course_id:
+            course_link = ''
+        else:
+            course_link = '&course_id=%s' % course_id
+        data['course_link'] = course_link
+        return data
 
 class StudentCreateView(CreateView):
     model = Student
