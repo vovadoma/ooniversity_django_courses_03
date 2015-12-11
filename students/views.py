@@ -28,7 +28,7 @@ class StudentListView(ListView):
         except PageNotAnInteger:
             students_list = paginator.page(1)
         except EmptyPage:
-            students_list = paginator.page(paginator.num_pages)
+            students_list = paginator.page(1)
         return students_list
 
     def get_context_data(self, **kwargs):
