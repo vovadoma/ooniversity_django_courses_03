@@ -47,11 +47,11 @@
 
         <ul class="pagination pagination-centered">
             {% if object_list.has_previous %}
-                <li><a href="?page={{ object_list.previous_page_number }}{{ course_link }}">previous</a></li>
+                <li><a href="?page={{ object_list.previous_page_number }}{{ course_link }}"><< previous</a></li>
             {% endif %}
             <li><a href="#">Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.</a></li>
             {% if object_list.has_next %}
-                <li><a href="?page={{ object_list.next_page_number }}{{ course_link }}">next</a></li>
+                <li><a href="?page={{ object_list.next_page_number }}{{ course_link }}">next >></a></li>
             {% endif %}
         </ul>
     </div>
