@@ -62,6 +62,52 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
+LOGGING = {
+    'version': 1,
+
+    'formatters': {
+
+        'student': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+
+        'course': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+
+    'handlers': {
+
+        'file_course': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+            'formatter': 'course'
+        },
+
+        'file_student': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+            'formatter': 'student'
+        },
+    },
+
+    'loggers': {
+
+        'courses': {
+            'handlers': ['file_course'],
+            'level': 'DEBUG',
+        },
+
+        'students': {
+            'handlers': ['file_student'],
+            'level': 'WARNING',
+        },
+    },
+}
+
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -82,5 +128,5 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
-ADMINS = ['x500@ukr.net', 'admin@admin.ua', 'admin@ukr.net']
+ADMINS = ['x500@ukr.net']
 

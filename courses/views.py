@@ -6,6 +6,9 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from courses.models import Course, Lesson
 from pybursa.views import MixinMsg, MixinTitle
 
+import logging
+course_logger = logging.getLogger(__name__)
+
 
 class CourseDetailView(DetailView):
     model = Course
@@ -16,6 +19,13 @@ class CourseDetailView(DetailView):
         data = super(CourseDetailView, self).get_context_data(**kwargs)
         lessons = Lesson.objects.filter(course=self.object).order_by('order')
         data['lessons'] = lessons
+
+        #logger
+        course_logger.debug("Courses detail view has been debugged")
+        course_logger.info("Logger of courses detail view informs you!")
+        course_logger.warning("Logger of courses detail view warns you!")
+        course_logger.error("Courses detail view went wrong!")
+
         return data
 
 class CourseCreateView(CreateView):
