@@ -12,26 +12,44 @@
 
     {% include "courses/include/promo_include.html" %}
 
-    <div class="row marketing">
-        <div>
-            <h3 class="main-course-name">Список наших курсов</h3>
-            <a href="{% url 'courses:add' %}" class="btn btn-info">Add</a>
-            <table>
-                <tr>
-                    <th>Курс</th>
-                    <th>Описание</th>
-                    <th></th>
-                    <th></th>
-                </tr>
+    <!-- Home Page
+    ==========================================-->
+    <div id="tf-home" class="text-center">
+        <div class="overlay">
+            <div class="content">
+                <h1>Welcome on <strong><span class="color">ItBursa</span></strong></h1>
+                <p class="lead">We are a digital agency with <strong>years of experience</strong> and with <strong>extraordinary people</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section
+    ==========================================-->
+    <div id="tf-services" class="text-center">
+        <div class="container">
+            <div class="section-title center">
+                <h2>Take a look at <strong>our курсы</strong></h2>
+                <div class="line">
+                    <hr>
+                </div>
+                <div class="clearfix"></div>
+                <small><em>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</em></small>
+                <a href="{% url 'courses:add' %}">Добавить курс</a>
+            </div>
+            <div class="space"></div>
+            <div class="row">
+
                 {% for course in courses %}
-                <tr>
-                    <td><a href="{% url 'courses:detail' course.id %}">{{ course|upper }}</a></td>
-                    <td>{{ course.short_description|title }}</td>
-                    <td><a href="{% url 'courses:edit' course.id %}" class="btn btn-info">Edit</a></td>
-			        <td><a href="{% url 'courses:remove' course.id %}" class="btn btn-info">Delete</a></td>
-                </tr>
+                <div class="col-md-3 col-sm-6 service">
+                    <i class="fa fa-desktop"></i>
+                    <h4><strong><a href="{% url 'courses:detail' course.id %}">{{ course|upper }}</a></strong></h4>
+                    <p>{{ course.short_description|title }}</p>
+                    <a href="{% url 'courses:edit' course.id %}">Edit</a>
+                    <a href="{% url 'courses:remove' course.id %}">Delete</a>
+                </div>
                 {% endfor %}
-            </table>
+
+            </div>
         </div>
     </div>
 
