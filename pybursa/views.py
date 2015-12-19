@@ -29,4 +29,3 @@ class MixinMsg(object):
         messages.success(self.request, self.success_message['msg'] %
                          form.save().__getattribute__(self.success_message['attr']))
         return super(MixinMsg, self).form_valid(form)
-
