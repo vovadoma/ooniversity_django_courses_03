@@ -12,8 +12,9 @@ class StudentsListTest(TestCase, Db_seed):
         self.assertContains(response, 'IT courses students page')
         self.assertContains(response, reverse_lazy('students:add'))
 
-    def atest_add(self):
+    def test_add(self):
         # test add student by POST request
+        course = self.new_course('Course1', self.new_coach('c1'), self.new_coach('a1'));
         response = self.http_client.post(reverse_lazy('students:add'), {
                                     'name': 'Name',
                                     'surname': 'Surname',
@@ -21,8 +22,9 @@ class StudentsListTest(TestCase, Db_seed):
                                     'email': 'email@email.com',
                                     'phone': '777',
                                     'address': 'Address',
-                                    'skype': 'Skype'})
-
+                                    'skype': 'Skype',
+                                    'courses': [course.id]
+        })
         self.assertEqual(response.status_code, 302)
         self.assertEqual(Student.objects.all().count(), 1)
 
