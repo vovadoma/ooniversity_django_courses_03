@@ -14,7 +14,7 @@ DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['odexy.in.ua']
+ALLOWED_HOSTS = ['www.odexy.in.ua']
 
 
 # Application definition
