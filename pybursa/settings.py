@@ -14,7 +14,7 @@ DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['46.101.14.26']
+ALLOWED_HOSTS = ['odexy.in.ua']
 
 
 # Application definition
