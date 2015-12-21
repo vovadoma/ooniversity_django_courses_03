@@ -21,10 +21,10 @@ class CourseDetailView(DetailView):
         data['lessons'] = lessons
 
         #logger
-        course_logger.debug("Courses detail view has been debugged")
-        course_logger.info("Logger of courses detail view informs you!")
-        course_logger.warning("Logger of courses detail view warns you!")
-        course_logger.error("Courses detail view went wrong!")
+        #course_logger.debug("Courses detail view has been debugged")
+        #course_logger.info("Logger of courses detail view informs you!")
+        #course_logger.warning("Logger of courses detail view warns you!")
+        #course_logger.error("Courses detail view went wrong!")
 
         return data
 

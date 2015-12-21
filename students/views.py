@@ -14,10 +14,10 @@ class StudentDetailView(DetailView):
     model = Student
 
     def get_context_data(self, **kwargs):
-        student_logger.debug("Students detail view has been debugged")
-        student_logger.info("Logger of students detail view informs you!")
-        student_logger.warning("Logger of students detail view warns you!")
-        student_logger.error("Students detail view went wrong!")
+        #student_logger.debug("Students detail view has been debugged")
+        #student_logger.info("Logger of students detail view informs you!")
+        #student_logger.warning("Logger of students detail view warns you!")
+        #student_logger.error("Students detail view went wrong!")
         return super(StudentDetailView, self).get_context_data(**kwargs)
 
 class StudentListView(ListView):
