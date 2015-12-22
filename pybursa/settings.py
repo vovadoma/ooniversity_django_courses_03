@@ -126,9 +126,15 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 1025
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'Vova_Doma'
+EMAIL_HOST_PASSWORD = 'x3lS1ImDSe6D'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 ADMINS = ['x500@ukr.net']
+
+
 
 try:
     from local_settings import *
