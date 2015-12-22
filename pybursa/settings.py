@@ -14,7 +14,7 @@ DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['www.odexy.in.ua']
+ALLOWED_HOSTS = ['www.odexy.in.ua', '127.0.0.1', 'odexy.in.ua', '46.101.14.26']
 
 
 # Application definition
@@ -130,3 +130,8 @@ EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
 ADMINS = ['x500@ukr.net']
 
+try:
+    from local_settings import *
+    print "Used local setting."
+except ImportError:
+    print "Warning! Local setting not define!"

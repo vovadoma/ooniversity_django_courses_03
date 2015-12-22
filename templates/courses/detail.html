@@ -10,45 +10,65 @@
 
 {% block content %}
 
-    <div class="course-detail-header">
-        <h3>{{ title }}</h3>
-        <h4>{{ course }}</h4>
-        <p class="lead">{{ course.description|truncatechars:32 }}</p>
-    </div>
+    <div id="tf-contact" class="text-center">
+        <div class="container">
+            <div class="section-title center">
+                <h2>{{ title }}</h2>
+                <h4>{{ course }}</h4>
+                <div class="line">
+                    <hr>
+                </div>
+                <div class="clearfix"></div>
+                <small><em>{{ course.description|truncatechars:32 }}</em></small>
+            </div>
 
-    <h3>Преподаватели</h3>
+            <div id="team" class="owl-carousel owl-theme row">
+                <div class="item">
+                    <div class="thumbnail">
+                        <img src="{% static 'img/team/01.jpg' %}" alt="..." class="img-circle team-img">
+                        <div class="caption">
+                            <a href="{% url 'coaches:detail' course.coach.id %}">
+                                <h3>{{ course.coach.first_name }} {{ course.coach.last_name }}</h3>
+                            </a>
+                            <p>Учитель</p>
+                            <p>{{ course.coach.description }}</p>
+                        </div>
+                    </div>
+                </div>
 
-    <h4>Учитель</h4>
-    <a href="{% url 'coaches:detail' course.coach.id %}">
-        <h4>{{ course.coach.first_name }} {{ course.coach.last_name }}</h4>
-    </a>
-    <p>{{ course.coach.description }}</p>
+                <div class="item">
+                    <div class="thumbnail">
+                        <img src="{% static 'img/team/03.jpg' %}" alt="..." class="img-circle team-img">
+                        <div class="caption">
+                            <a href="{% url 'coaches:detail' course.assistant.id %}">
+                                <h3>{{ course.assistant.first_name }} {{ course.assistant.last_name }}</h3>
+                            </a>
+                            <p>Ассистент</p>
+                            <p>{{ course.assistant.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <h4>Ассистент</h4>
-    <a href="{% url 'coaches:detail' course.assistant.id %}">
-        <h4>{{ course.assistant.first_name }} {{ course.assistant.last_name }}</h4>
-    </a>
-    <p>{{ course.assistant.description }}</p>
+            <h3>План курса</h3>
+            <a href="{% url 'courses:add-lesson' course.id %}">добавить занятие</a>
 
-    <h3>План курса</h3>
-
-    <a href="{% url 'courses:add-lesson' course.id %}" class="btn btn-info">добавить занятие</a>
-
-    <div class="program-list">
-        <table>
-            <tr>
-                <th>#</th>
-                <th>Тема</th>
-                <th>Описание</th>
-            </tr>
-            {% for lesson in lessons %}
+            <table class="table table-striped table-bordered">
                 <tr>
-                    <td>{{ lesson.order }}</td>
-                    <td>{{ lesson }}</td>
-                    <td>{{ lesson.description }}</td>
+                    <th>#</th>
+                    <th>Тема</th>
+                    <th>Описание</th>
                 </tr>
-            {% endfor %}
-        </table>
+                {% for lesson in lessons %}
+                    <tr>
+                        <td>{{ lesson.order }}</td>
+                        <td>{{ lesson }}</td>
+                        <td>{{ lesson.description }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+        </div>
     </div>
 
 {% endblock content %}

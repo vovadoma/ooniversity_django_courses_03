@@ -10,43 +10,53 @@
 
 {% block content %}
 
-    <div class="page-header">
-        <h1 class="detail-surname">{{ student.name }} {{ student.surname }}</h1>
-    </div>
+    <!-- Contact Section
+    ==========================================-->
+    <div id="tf-contact" class="text-center">
+        <div class="container">
+            <div class="section-title center">
+                <h2>{{ student.name }} {{ student.surname }}</h2>
+                <div class="line">
+                    <hr>
+                </div>
+                <div class="clearfix"></div>
+                <small><em>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</em></small>
+            </div>
 
-    <div>
-        <table class="table detail-table">
-            <tr>
-                <th>дата рождения</th>
-                <td>{{ student.date_of_birth }}</td>
-            </tr>
-            <tr>
-                <th>адрес</th>
-                <td>{{ student.address }}</td>
-            </tr>
-            <tr>
-                <th>почта</th>
-                <td>{{ student.email }}</td>
-            </tr>
-            <tr>
-                <th>логин skype</th>
-                <td>{{ student.skype }}</td>
-            </tr>
-            <tr>
-                <th>телефон</th>
-                <td>{{ student.phone }}</td>
-            </tr>
-            <tr>
-                <th>Курсы</th>
-                <td>
-                    <ul>
-                        {% for course in student.courses.all %}
-                        <li><a href="{% url 'courses:detail' course.id %}">{{ course }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </td>
-            </tr>
-        </table>
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <th>дата рождения</th>
+                    <td>{{ student.date_of_birth }}</td>
+                </tr>
+                <tr>
+                    <th>адрес</th>
+                    <td>{{ student.address }}</td>
+                </tr>
+                <tr>
+                    <th>почта</th>
+                    <td>{{ student.email }}</td>
+                </tr>
+                <tr>
+                    <th>логин skype</th>
+                    <td>{{ student.skype }}</td>
+                </tr>
+                <tr>
+                    <th>телефон</th>
+                    <td>{{ student.phone }}</td>
+                </tr>
+                <tr>
+                    <th>Курсы</th>
+                    <td>
+                        <ul>
+                            {% for course in student.courses.all %}
+                            <li><a href="{% url 'courses:detail' course.id %}">{{ course }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
     </div>
 
 {% endblock content %}
