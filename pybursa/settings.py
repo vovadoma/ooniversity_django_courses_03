@@ -126,18 +126,18 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'Vova_Doma'
-EMAIL_HOST_PASSWORD = 'x3lS1ImDSe6D'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-#EMAIL_HOST = 'mail.ukraine.com.ua'
-#EMAIL_HOST_USER = 'admin'
-#EMAIL_HOST_PASSWORD = '4R2r9NskRy3D'
-#EMAIL_PORT = 25
+#EMAIL_HOST = 'smtp.sendgrid.net'
+#EMAIL_HOST_USER = 'Vova_Doma'
+#EMAIL_HOST_PASSWORD = 'x3lS1ImDSe6D'
+#EMAIL_PORT = 587
+#EMAIL_USE_TLS = True
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'mail.ukraine.com.ua'
+EMAIL_HOST_USER = 'admin'
+EMAIL_HOST_PASSWORD = '4R2r9NskRy3D'
+EMAIL_PORT = 25
 
 ADMINS = ['x500@ukr.net']
 
